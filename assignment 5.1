@@ -1,0 +1,303 @@
+{
+ "cells": [
+  {
+   "cell_type": "raw",
+   "id": "c69c0661-9ae6-4e93-bbef-e4cd42548a0a",
+   "metadata": {},
+   "source": [
+    "Q1-What is an exception in python? write the difference between exception and syntax error."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "92a0f56b-01ed-407c-9176-21ec0d4972b9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Exceptions are runtime errors in Python that occur during program execution, caused by invalid operations or unexpected situations. Syntax errors are detected during the parsing phase due to incorrect Python syntax, such as typos or missing keywords, requiring fixes before program execution.'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\"\"\"Exceptions are runtime errors in Python that occur during program execution, caused by invalid operations or unexpected situations. Syntax errors are detected during the parsing phase due to incorrect Python syntax, such as typos or missing keywords, requiring fixes before program execution.\"\"\""
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "090c335f-c20f-4846-9e29-a91fc139eef4",
+   "metadata": {},
+   "source": [
+    "Q2- what happen when exception is not handaled? explain with an example"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "4e38fd20-a3d1-4673-af81-979e0ee6a02c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "11.5\n"
+     ]
+    },
+    {
+     "ename": "ZeroDivisionError",
+     "evalue": "division by zero",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mZeroDivisionError\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[4], line 7\u001b[0m\n\u001b[1;32m      3\u001b[0m         \u001b[38;5;28;01mreturn\u001b[39;00m (\u001b[38;5;241m23\u001b[39m\u001b[38;5;241m/\u001b[39mdivideby)\n\u001b[1;32m      6\u001b[0m \u001b[38;5;28mprint\u001b[39m(spam(\u001b[38;5;241m2\u001b[39m))\n\u001b[0;32m----> 7\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[43mspam\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;241;43m0\u001b[39;49m\u001b[43m)\u001b[49m)\n\u001b[1;32m      8\u001b[0m \u001b[38;5;28mprint\u001b[39m(spam(\u001b[38;5;241m1\u001b[39m))\n\u001b[1;32m      9\u001b[0m \u001b[38;5;28mprint\u001b[39m(spam(\u001b[38;5;241m23\u001b[39m))\n",
+      "Cell \u001b[0;32mIn[4], line 3\u001b[0m, in \u001b[0;36mspam\u001b[0;34m(divideby)\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mspam\u001b[39m(divideby): \u001b[38;5;66;03m## try block exclude the run time error here,but it is not included\u001b[39;00m\n\u001b[0;32m----> 3\u001b[0m         \u001b[38;5;28;01mreturn\u001b[39;00m (\u001b[38;5;241;43m23\u001b[39;49m\u001b[38;5;241;43m/\u001b[39;49m\u001b[43mdivideby\u001b[49m)\n",
+      "\u001b[0;31mZeroDivisionError\u001b[0m: division by zero"
+     ]
+    }
+   ],
+   "source": [
+    "def spam(divideby): ## try block exclude the run time error here,but it is not included\n",
+    "    \n",
+    "        return (23/divideby)\n",
+    "        \n",
+    "\n",
+    "print(spam(2))\n",
+    "print(spam(0))\n",
+    "print(spam(1))\n",
+    "print(spam(23))"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "65f69297-dfa6-4a71-8a79-9b5c075e3132",
+   "metadata": {},
+   "source": [
+    "Q3- which python statement are used to catch and handaled exception? explain with an example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "c677042b-2d4c-4633-aa4d-541667fef844",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def spam(divideby): \n",
+    "    try:\n",
+    "        return (23/divideby)\n",
+    "    except ZeroDivisionErorr:\n",
+    "        print('you cannot divide by zero')\n",
+    "    else:\n",
+    "        print(' try block ran succesfully')\n",
+    "        \n",
+    "    finally:\n",
+    "        print(' this will irrespective of both')\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "ddd0a7da-54bd-42a5-bcf5-7cb98cd950b7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " this will irrespective of both\n",
+      "11.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(spam(2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "2841bf68-8911-467d-8a2f-1f4918858b0c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " this will irrespective of both\n",
+      "1.9166666666666667\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(spam(12))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "cd58a571-9e43-4c4b-b87e-bcdd8fd6b749",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " this will irrespective of both\n",
+      "1.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(spam(23))"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "2d2e4074-65c0-4478-81f0-3d46ef3b2ba3",
+   "metadata": {},
+   "source": [
+    "Q4- explain with an example:\n",
+    "\n",
+    "a: try and else\n",
+    "b: finally\n",
+    "c:  raise"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "86605c7d-4bef-46f3-b177-22eb49640dee",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " this will irrespective of both\n",
+      "1.7692307692307692\n",
+      " found an exception,e\n",
+      " this will irrespective of both\n"
+     ]
+    },
+    {
+     "ename": "ZeroDivisionError",
+     "evalue": "can't divide by zero",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mZeroDivisionError\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[14], line 3\u001b[0m, in \u001b[0;36mnum\u001b[0;34m(divideby)\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[0;32m----> 3\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m (\u001b[38;5;241;43m23\u001b[39;49m\u001b[38;5;241;43m/\u001b[39;49m\u001b[43mdivideby\u001b[49m)\n\u001b[1;32m      5\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mZeroDivisionError\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m e:\n",
+      "\u001b[0;31mZeroDivisionError\u001b[0m: division by zero",
+      "\nDuring handling of the above exception, another exception occurred:\n",
+      "\u001b[0;31mZeroDivisionError\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[14], line 15\u001b[0m\n\u001b[1;32m     12\u001b[0m         \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124m this will irrespective of both\u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[1;32m     14\u001b[0m \u001b[38;5;28mprint\u001b[39m(num(\u001b[38;5;241m13\u001b[39m))\n\u001b[0;32m---> 15\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[43mnum\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;241;43m0\u001b[39;49m\u001b[43m)\u001b[49m)\n",
+      "Cell \u001b[0;32mIn[14], line 7\u001b[0m, in \u001b[0;36mnum\u001b[0;34m(divideby)\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mZeroDivisionError\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m e:\n\u001b[1;32m      6\u001b[0m     \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m found an exception,e\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[0;32m----> 7\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mZeroDivisionError\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mcan\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mt divide by zero\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[1;32m      8\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m      9\u001b[0m     \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124m try block ran succesfully\u001b[39m\u001b[38;5;124m'\u001b[39m)\n",
+      "\u001b[0;31mZeroDivisionError\u001b[0m: can't divide by zero"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "def num(divideby):\n",
+    "    try:\n",
+    "        return (23/divideby)\n",
+    "    \n",
+    "    except ZeroDivisionError as e:\n",
+    "        print(\" found an exception,e\")\n",
+    "        raise ZeroDivisionError(\"can't divide by zero\")\n",
+    "    else:\n",
+    "        print(' try block ran succesfully')\n",
+    "        \n",
+    "    finally:\n",
+    "        print(' this will irrespective of both')\n",
+    "\n",
+    "print(num(13))\n",
+    "print(num(0))\n",
+    "\n",
+    "\n",
+    "\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "93ef235c-9e1f-4249-a259-c23ebdcd578b",
+   "metadata": {},
+   "source": [
+    "Q5-what are custom exception in python? why do we need custom exception? explain with an example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "719e9102-f527-4c1a-9a36-e9020e93f2c1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class CustomError(Exception):\n",
+    "    def __init__(self, age):\n",
+    "        self.age = age\n",
+    "try:\n",
+    "    num = int(input(\"Enter a number:\"))\n",
+    "    if num > 0 :\n",
+    "        raise customError(\"negative digit are not allowed\")\n",
+    "    else:\n",
+    "        print(\"You entered:\", num)\n",
+    "        \n",
+    "except CustomError as ce:\n",
+    "        print(\"coughtcustomerror:,ce.age\")\n",
+    "        \n",
+    "except valueError:\n",
+    "        print(\" Invalid Input:enter a valid number\")\n",
+    "finally:\n",
+    "        print(\"this run irrespective of anything\")\n",
+    "        \n",
+    "        \n",
+    "        \n",
+    "    \n",
+    "    \n",
+    "    \n",
+    "    \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "34c39c54-06e8-43af-81b9-e4d3ad5b4afa",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
